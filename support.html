@@ -1,1 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Opportunities HQ</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Embedded CSS -->
+    <style>
+        /* Include color variables from main theme */
+        :root {
+            --color-primary: #e3e5ec;
+            --color-secondary: #4e5fa2;
+            --color-accent1: #3e4a8c;
+            --color-accent4: #1d275b;
+            --color-bg: #dce0ea;
+            --color-text: #333;
+            --color-white: #ffffff;
+            --color-shadow: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary) 90%);
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: rgba(24, 25, 84, 0.85);
+            color: var(--color-white);
+            padding: 20px 0;
+            box-shadow: 0 2px 4px var(--color-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--color-accent1);
+            color: var(--color-primary);
+        }
+
+        /* Main Content Styling */
+        main {
+            padding: 40px 0;
+        }
+
+        #support {
+            background-color: var(--color-white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px var(--color-shadow);
+        }
+
+        #support h2 {
+            margin-bottom: 20px;
+            color: var(--color-accent4);
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.5rem;
+        }
+
+        #support h3 {
+            margin-top: 20px;
+            color: var(--color-accent4);
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+        }
+
+        #support p {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        #support a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        #support a:hover {
+            color: var(--color-accent1);
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: rgba(24, 25, 84, 0.85);
+            color: var(--color-white);
+            padding: 20px 0;
+            margin-top: 40px;
+            box-shadow: 0 -2px 4px var(--color-shadow);
+            backdrop-filter: blur(5px);
+        }
+
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-container p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .social a {
+            color: var(--color-white);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .social a:hover {
+            color: var(--color-accent1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <h1>Opportunities HQ</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html#dubai">Dubai Opportunities</a></li>
+                    <li><a href="index.html#vancouver">Vancouver Opportunities</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <section id="support">
+                <h2>Support Us</h2>
+                <p>
+                    Your support helps us connect more individuals with valuable opportunities. There are several ways you can contribute to <strong>Opportunities HQ</strong>:
+                </p>
+                <h3>Donate</h3>
+                <p>
+                    Financial contributions enable us to maintain and expand our platform, ensuring that more opportunities are accessible to those who need them. <a href="#">Donate Now</a> to make a difference.
+                </p>
+                <h3>Volunteer</h3>
+                <p>
+                    Join our team of dedicated volunteers who help manage opportunities, support users, and promote our mission. <a href="#">Sign Up to Volunteer</a> today!
+                </p>
+                <h3>Partner with Us</h3>
+                <p>
+                    If you're an organization looking to offer opportunities or collaborate with us, we'd love to hear from you. <a href="#">Get in Touch</a> to explore partnership opportunities.
+                </p>
+                <h3>Spread the Word</h3>
+                <p>
+                    Help us reach a wider audience by sharing our platform with friends, family, and on your social media channels. Your advocacy is invaluable!
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <p>&copy; 2024 Opportunities HQ. All rights reserved.</p>
+            <div class="social">
+                <a href="https://www.instagram.com/opportunities_hq/">Instagram</a> |
+                <a href="#">Twitter</a> |
+                <a href="https://www.linkedin.com/company/opportunities-hq/?originalSubdomain=ca">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
 
