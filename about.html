@@ -1,1 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Opportunities HQ</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Embedded CSS -->
+    <style>
+        /* Define color variables */
+        :root {
+            --color-primary: #e3e5ec;
+            --color-secondary: #4e5fa2;
+            --color-accent1: #3e4a8c;
+            --color-accent4: #1d275b;
+            --color-bg: #dce0ea;
+            --color-text: #333;
+            --color-white: #ffffff;
+            --color-shadow: rgba(0, 0, 0, 0.1);
+
+        }
+
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary) 90%);
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: rgba(27, 28, 93, 0.85);
+            color: var(--color-white);
+            padding: 20px 0;
+            box-shadow: 0 2px 4px var(--color-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--color-accent1);
+            color: var(--color-primary);
+        }
+
+        /* Main Content Styling */
+        main {
+            padding: 40px 0;
+        }
+
+        #about {
+            background-color: var(--color-white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px var(--color-shadow);
+        }
+
+        #about h2 {
+            margin-bottom: 20px;
+            color: var(--color-primary);
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.5rem;
+        }
+
+        #about h3 {
+            margin-top: 20px;
+            color: var(--color-primary);
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+        }
+
+        #about p {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        #about ul {
+            margin-left: 20px;
+            list-style-type: disc;
+        }
+
+        #about ul li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            font-weight: 700;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: rgba(27, 28, 93, 0.85);
+            color: var(--color-white);
+            padding: 20px 0;
+            margin-top: 40px;
+            box-shadow: 0 -2px 4px var(--color-shadow);
+            backdrop-filter: blur(5px);
+        }
+
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-container p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .social a {
+            color: var(--color-white);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .social a:hover {
+            color: var(--color-accent1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <h1>Opportunities HQ</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html#dubai">Dubai Opportunities</a></li>
+                    <li><a href="index.html#vancouver">Vancouver Opportunities</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <section id="about">
+                <h2>About Us</h2>
+                <p>
+                    Welcome to <strong>Opportunities HQ</strong>! We are a dedicated non-profit organization committed to connecting individuals in Dubai and Vancouver with a wide range of opportunities. Whether you're seeking paid internships, volunteer positions, remote work, or in-person engagements, our platform is designed to help you find the perfect match tailored to your skills and aspirations.
+                </p>
+                <p>
+                    Our mission is to empower communities by providing access to meaningful opportunities that foster personal and professional growth. We collaborate with various organizations, educational institutions, and community groups to curate a diverse array of opportunities that cater to different age groups and educational levels.
+                </p>
+                <h3>Our Vision</h3>
+                <p>
+                    To create a thriving ecosystem where individuals can seamlessly connect with opportunities that enhance their lives and contribute positively to their communities.
+                </p>
+                <h3>Our Values</h3>
+                <ul>
+                    <li><strong>Inclusivity:</strong> We believe in providing opportunities for everyone, regardless of background or circumstance.</li>
+                    <li><strong>Integrity:</strong> We maintain transparency and honesty in all our dealings.</li>
+                    <li><strong>Excellence:</strong> We strive to offer the highest quality opportunities and support.</li>
+                    <li><strong>Community:</strong> We foster a sense of belonging and mutual support among our users.</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <p>&copy; 2024 Opportunities HQ. All rights reserved.</p>
+            <div class="social">
+                <a href="https://www.instagram.com/opportunities_hq/">Instagram</a> |
+                <a href="https://www.linkedin.com/company/opportunities-hq/?originalSubdomain=ca">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
 
