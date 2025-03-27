@@ -4,51 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newsletter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        /* Define color variables */
+        :root {
+            --color-primary: #e3e5ec;
+            --color-secondary: #4e5fa2;
+            --color-accent1: #3e4a8c;
+            --color-accent4: #1d275b;
+            --color-bg: #dce0ea;
+            --color-text: #333;
+            --color-white: #ffffff;
+            --color-shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #3B4A91;
-            color: white;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary) 90%);
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
             max-width: 900px;
             margin: auto;
-            padding: 20px;
-        }
-        .container {
-            background-color: #5A67B1;
+            background-color: var(--color-white);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px var(--color-shadow);
         }
+
         h1, h2, h3 {
-            color: #FFFFFF;
+            color: var(--color-accent1);
+            font-family: 'Roboto', sans-serif;
         }
+
         .subscribe-box, .feedback-box, .card {
-            background-color: #ffffff;
-            color: black;
+            background-color: var(--color-primary);
+            color: var(--color-text);
             padding: 15px;
             border-radius: 8px;
             margin-bottom: 15px;
         }
+
         input, textarea {
-            width: 100%;
+            width: calc(100% - 22px);
             padding: 10px;
             margin-top: 5px;
-            border: 1px solid #ccc;
+            border: 1px solid #90caf9;
             border-radius: 5px;
         }
+
         button {
             padding: 10px 15px;
-            background-color: #273469;
-            color: white;
+            background-color: var(--color-accent1);
+            color: var(--color-white);
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
+
         button:hover {
-            background-color: #1F2959;
+            background-color: var(--color-accent4);
         }
+
         a {
-            color: #273469;
+            color: var(--color-accent1);
             font-weight: bold;
         }
     </style>
@@ -91,12 +122,20 @@
     <script>
         function subscribe() {
             var email = document.getElementById('email').value;
-            alert('Subscribed with: ' + email);
+            if (email) {
+                alert('Subscribed with: ' + email);
+            } else {
+                alert('Please enter a valid email address.');
+            }
         }
 
         function submitFeedback() {
             var feedback = document.getElementById('feedback').value;
-            alert('Feedback submitted: ' + feedback);
+            if (feedback) {
+                alert('Feedback submitted: ' + feedback);
+            } else {
+                alert('Please enter your feedback before submitting.');
+            }
         }
     </script>
 </body>
