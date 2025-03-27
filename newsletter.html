@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .card {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .subscribe-box, .feedback-box {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Newsletter</h1>
+    
+    <div class="subscribe-box">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Enter your email address to be added to our newsletter email list.</p>
+        <input type="email" id="email" placeholder="Enter your email">
+        <button onclick="subscribe()">Subscribe</button>
+    </div>
+    
+    <div class="section">
+        <h2>Recent Newsletters</h2>
+        <div class="card">
+            <h3>August 2024</h3>
+            <a href="newsletter-august24.pdf" download>Download Newsletter</a>
+        </div>
+        <div class="card">
+            <h3>October 2024</h3>
+            <a href="newsletter-october24.pdf" download>Download Newsletter</a>
+        </div>
+        <div class="card">
+            <h3>December 2024</h3>
+            <a href="newsletter-december24.pdf" download>Download Newsletter</a>
+        </div>
+    </div>
+    
+    <div class="feedback-box">
+        <h2>What Would You Like to See?</h2>
+        <p>Let us know what topics you’d like covered in future newsletters.</p>
+        <textarea id="feedback" rows="4" placeholder="Enter your suggestions..."></textarea>
+        <button onclick="submitFeedback()">Submit</button>
+    </div>
+
+    <script>
+        function subscribe() {
+            var email = document.getElementById('email').value;
+            alert('Subscribed with: ' + email);
+        }
+
+        function submitFeedback() {
+            var feedback = document.getElementById('feedback').value;
+            alert('Feedback submitted: ' + feedback);
+        }
+    </script>
+</body>
+</html>
