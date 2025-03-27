@@ -1,5 +1,3 @@
-// script.js
-
 // Placeholder activities data
 const activitiesData = {
     dubai: [
@@ -21,7 +19,6 @@ const activitiesData = {
             workMode: "hybrid",
             target: "12th Grade"
         },
-        // Add more placeholder activities as needed
     ],
     vancouver: [
         {
@@ -42,7 +39,6 @@ const activitiesData = {
             workMode: "in-person",
             target: "Any Grade"
         },
-        // Add more placeholder activities as needed
     ]
 };
 
@@ -87,63 +83,97 @@ function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-// Function to load activities into the DOM
+// Function to extract unique tags
+function getUniqueTags() {
+    const allTags = [...activitiesData.dubai, ...activitiesData.vancouver]
+        .flatMap(activity => activity.tags);
+    return [...new Set(allTags)];
+}
+
+// Populate keyword checkboxes dynamically
+function populateKeywordsCheckboxes() {
+    const keywordsContainer = document.getElementById("keywords-checkboxes");
+    const uniqueTags = getUniqueTags();
+    keywordsContainer.innerHTML = "";
+
+    uniqueTags.forEach(tag => {
+        const label = document.createElement("label");
+        label.classList.add("custom-checkbox");
+        label.innerHTML = `<input type="checkbox" name="keywords" value="${tag.toLowerCase()}"> ${tag}`;
+        keywordsContainer.appendChild(label);
+    });
+}
+
+// Attach styling to dynamically created keyword checkboxes
+function attachKeywordCheckboxStyling() {
+    const checkboxes = document.querySelectorAll('input[name="keywords"]');
+    checkboxes.forEach(checkbox => {
+        const label = checkbox.parentElement;
+
+        function updateStyle() {
+            if (checkbox.checked) {
+                label.style.backgroundColor = '#49497d';
+                label.style.color = '#ffffff';
+                label.style.fontWeight = '600';
+                label.style.borderRadius = '10px';
+                label.style.padding = '10px 20px';
+                label.style.transition = '0.3s';
+            } else {
+                label.style.backgroundColor = 'var(--color-bg)';
+                label.style.color = 'var(--color-text)';
+                label.style.fontWeight = '600';
+                label.style.borderRadius = '10px';
+                label.style.padding = '7px 11px';
+            }
+        }
+
+        checkbox.addEventListener('change', updateStyle);
+        updateStyle(); // Initial render
+    });
+}
+
+// Load all activities
 function loadActivities() {
     const dubaiContainer = document.getElementById('dubai-activities');
     const vancouverContainer = document.getElementById('vancouver-activities');
-
-    // Clear existing activities
     dubaiContainer.innerHTML = '';
     vancouverContainer.innerHTML = '';
 
-    // Load Dubai activities
     activitiesData.dubai.forEach(activity => {
         const card = createActivityCard(activity);
         dubaiContainer.appendChild(card);
     });
 
-    // Load Vancouver activities
     activitiesData.vancouver.forEach(activity => {
         const card = createActivityCard(activity);
         vancouverContainer.appendChild(card);
     });
 }
 
-// Function to apply filters
+// Apply filters
 function applyFilters() {
-    const keywords = document.getElementById('keywords').value.toLowerCase();
+    const selectedTags = Array.from(document.querySelectorAll('input[name="keywords"]:checked'))
+        .map(el => el.value.toLowerCase());
     const paymentTypes = Array.from(document.querySelectorAll('input[name="payment"]:checked')).map(el => el.value);
     const workModes = Array.from(document.querySelectorAll('input[name="workMode"]:checked')).map(el => el.value);
     const target = document.getElementById('target').value;
 
-    // Function to filter activities
     function filterActivities(activity) {
-        // Keywords/Tags Filter
-        if (keywords) {
-            const tagsMatch = activity.tags.some(tag => tag.toLowerCase().includes(keywords));
-            const nameMatch = activity.name.toLowerCase().includes(keywords);
-            if (!tagsMatch && !nameMatch) return false;
+        if (selectedTags.length > 0 && !selectedTags.some(tag => activity.tags.map(t => t.toLowerCase()).includes(tag))) {
+            return false;
         }
-
-        // Payment Type Filter
         if (paymentTypes.length > 0 && !paymentTypes.includes(activity.payment)) {
             return false;
         }
-
-        // Work Mode Filter
         if (workModes.length > 0 && !workModes.includes(activity.workMode)) {
             return false;
         }
-
-        // Target Grade/Age Filter
         if (target && activity.target !== target) {
             return false;
         }
-
         return true;
     }
 
-    // Filter and display Dubai activities
     const dubaiContainer = document.getElementById('dubai-activities');
     dubaiContainer.innerHTML = '';
     activitiesData.dubai.filter(filterActivities).forEach(activity => {
@@ -151,7 +181,6 @@ function applyFilters() {
         dubaiContainer.appendChild(card);
     });
 
-    // Filter and display Vancouver activities
     const vancouverContainer = document.getElementById('vancouver-activities');
     vancouverContainer.innerHTML = '';
     activitiesData.vancouver.filter(filterActivities).forEach(activity => {
@@ -160,16 +189,19 @@ function applyFilters() {
     });
 }
 
-// Function to reset filters
+// Reset filters
 function resetFilters() {
     document.getElementById('filter-form').reset();
     loadActivities();
+    attachKeywordCheckboxStyling(); // Reapply styling
 }
 
-// Event listeners
+// Initialize
+document.addEventListener("DOMContentLoaded", () => {
+    populateKeywordsCheckboxes();
+    attachKeywordCheckboxStyling(); // After checkboxes are inserted
+    loadActivities();
+});
+
 document.getElementById('apply-filters').addEventListener('click', applyFilters);
 document.getElementById('reset-filters').addEventListener('click', resetFilters);
-
-// Initialize the page by loading activities
-document.addEventListener('DOMContentLoaded', loadActivities);
-
