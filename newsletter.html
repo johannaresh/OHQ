@@ -6,85 +6,86 @@
     <title>Newsletter</title>
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            max-width: 800px;
+            font-family: 'Arial', sans-serif;
+            background-color: #3B4A91;
+            color: white;
+            max-width: 900px;
             margin: auto;
             padding: 20px;
-            background-color: #F4F4F2;
-            color: #333;
+        }
+        .container {
+            background-color: #5A67B1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         h1, h2, h3 {
-            color: #183A37;
+            color: #FFFFFF;
         }
-        .section {
-            margin-bottom: 20px;
-        }
-        .card {
+        .subscribe-box, .feedback-box, .card {
+            background-color: #ffffff;
+            color: black;
             padding: 15px;
-            border: 1px solid #D4A373;
             border-radius: 8px;
-            background-color: #FAF3E0;
-            margin-bottom: 10px;
-        }
-        .subscribe-box, .feedback-box {
-            padding: 15px;
-            border: 1px solid #D4A373;
-            border-radius: 8px;
-            background-color: #FAF3E0;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         input, textarea {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
-            border: 1px solid #D4A373;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            background-color: #FCF5E5;
         }
         button {
             padding: 10px 15px;
-            background-color: #A53860;
+            background-color: #273469;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
         button:hover {
-            background-color: #822E56;
+            background-color: #1F2959;
+        }
+        a {
+            color: #273469;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>Newsletter</h1>
-    
-    <div class="subscribe-box">
-        <h2>Subscribe to Our Newsletter</h2>
-        <p>Enter your email address to be added to our newsletter email list.</p>
-        <input type="email" id="email" placeholder="Enter your email">
-        <button onclick="subscribe()">Subscribe</button>
-    </div>
-    
-    <div class="section">
-        <h2>Recent Newsletters</h2>
-        <div class="card">
-            <h3>August 2024</h3>
-            <a href="newsletter-august24.pdf" download>Download Newsletter</a>
+    <div class="container">
+        <h1>Newsletter</h1>
+        
+        <div class="subscribe-box">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Enter your email address to be added to our newsletter email list.</p>
+            <input type="email" id="email" placeholder="Enter your email">
+            <button onclick="subscribe()">Subscribe</button>
         </div>
-        <div class="card">
-            <h3>October 2024</h3>
-            <a href="newsletter-october24.pdf" download>Download Newsletter</a>
+        
+        <div class="section">
+            <h2>Recent Newsletters</h2>
+            <div class="card">
+                <h3>August 2024</h3>
+                <a href="newsletter-august24.pdf" download>Download Newsletter</a>
+            </div>
+            <div class="card">
+                <h3>October 2024</h3>
+                <a href="newsletter-october24.pdf" download>Download Newsletter</a>
+            </div>
+            <div class="card">
+                <h3>December 2024</h3>
+                <a href="newsletter-december24.pdf" download>Download Newsletter</a>
+            </div>
         </div>
-        <div class="card">
-            <h3>December 2024</h3>
-            <a href="newsletter-december24.pdf" download>Download Newsletter</a>
+        
+        <div class="feedback-box">
+            <h2>What Would You Like to See?</h2>
+            <p>Let us know what topics you’d like covered in future newsletters.</p>
+            <textarea id="feedback" rows="4" placeholder="Enter your suggestions..."></textarea>
+            <button onclick="submitFeedback()">Submit</button>
         </div>
-    </div>
-    
-    <div class="feedback-box">
-        <h2>What Would You Like to See?</h2>
-        <p>Let us know what topics you’d like covered in future newsletters.</p>
-        <textarea id="feedback" rows="4" placeholder="Enter your suggestions..."></textarea>
-        <button onclick="submitFeedback()">Submit</button>
     </div>
 
     <script>
