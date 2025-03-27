@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <script data-goatcounter="https://opportunitieshq.goatcounter.com/count"
         async src="https://gc.zgo.at/count.js"></script>
 
@@ -95,20 +94,33 @@
                 <section id="dubai">
                     <h2>Dubai-Based Opportunities</h2>
                     <div class="activities" id="dubai-activities">
-                        
+                        <!-- Dubai activities will be loaded here -->
                     </div>
                 </section>
                 
                 <section id="vancouver">
                     <h2>Vancouver-Based Opportunities</h2>
                     <div class="activities" id="vancouver-activities">
-                
+                        <!-- Vancouver activities will be loaded here -->
                     </div>
                 </section>
-                
             </section>
         </div>
     </main>
+
+    <!-- Modal -->
+    <div id="activity-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+            <div id="modal-tags" class="activity-tags"></div>
+            <div id="modal-details" class="activity-details"></div>
+            <p><strong>Deadline:</strong> <span id="modal-deadline"></span></p>
+            <p><a id="modal-link" href="#" target="_blank">Apply Here</a></p>
+            <p id="modal-extra"></p>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -126,8 +138,7 @@
         </div>
     </footer>
 
-    <!-- External JavaScript -->
+    <!-- JavaScript -->
     <script src="script.js"></script>
-
 </body>
 </html>
