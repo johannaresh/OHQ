@@ -1,4 +1,4 @@
-// Placeholder activities data
+// Enhanced activities data with deadlines, links, and extras
 const activitiesData = {
     dubai: [
         {
@@ -8,7 +8,10 @@ const activitiesData = {
             tags: ["Technology", "Education"],
             payment: "voluntary",
             workMode: "in-person",
-            target: "11th Grade"
+            target: "11th Grade",
+            deadline: "2025-04-30",
+            applyLink: "https://example.com/tech-volunteer",
+            extraInfo: "You’ll be trained by industry mentors and provided with a certificate upon completion."
         },
         {
             id: 2,
@@ -17,7 +20,10 @@ const activitiesData = {
             tags: ["Marketing", "Business"],
             payment: "paid",
             workMode: "hybrid",
-            target: "12th Grade"
+            target: "12th Grade",
+            deadline: "2025-05-15",
+            applyLink: "https://example.com/marketing-internship",
+            extraInfo: "Requires basic knowledge of Canva or social media content planning."
         },
     ],
     vancouver: [
@@ -28,7 +34,10 @@ const activitiesData = {
             tags: ["Environment", "Research"],
             payment: "paid",
             workMode: "remote",
-            target: "9th Grade"
+            target: "9th Grade",
+            deadline: "2025-06-01",
+            applyLink: "https://example.com/environmental-research",
+            extraInfo: "Work closely with university labs and get credited on published findings."
         },
         {
             id: 4,
@@ -37,15 +46,70 @@ const activitiesData = {
             tags: ["Community", "Events"],
             payment: "voluntary",
             workMode: "in-person",
-            target: "Any Grade"
+            target: "Any Grade",
+            deadline: "2025-04-10",
+            applyLink: "https://example.com/community-outreach",
+            extraInfo: "Ideal for students interested in public speaking and event planning."
         },
     ]
 };
 
-// Function to create activity cards
+function getBookmarkedIds() {
+    return JSON.parse(localStorage.getItem("bookmarkedActivities")) || [];
+}
+
+function toggleBookmark(id, icon) {
+    let saved = getBookmarkedIds();
+    if (saved.includes(id)) {
+        saved = saved.filter(item => item !== id);
+        icon.classList.remove("bookmarked");
+        icon.innerHTML = "&#9734;";
+    } else {
+        saved.push(id);
+        icon.classList.add("bookmarked");
+        icon.innerHTML = "&#9733;";
+    }
+    localStorage.setItem("bookmarkedActivities", JSON.stringify(saved));
+}
+
+function toggleSvgBookmark(id, icon) {
+    let saved = getBookmarkedIds();
+    const svg = icon.querySelector("svg");
+    if (saved.includes(id)) {
+        saved = saved.filter(item => item !== id);
+        icon.classList.remove("bookmarked");
+        svg.setAttribute("fill", "none");
+    } else {
+        saved.push(id);
+        icon.classList.add("bookmarked");
+        svg.setAttribute("fill", "#1b1c5c");
+    }
+    localStorage.setItem("bookmarkedActivities", JSON.stringify(saved));
+}
+
+
 function createActivityCard(activity) {
     const card = document.createElement('div');
     card.classList.add('activity-card');
+
+    const bookmark = document.createElement("span");
+bookmark.classList.add("bookmark-icon");
+bookmark.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="#1b1c5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+    </svg>
+`;
+
+if (getBookmarkedIds().includes(activity.id)) {
+    bookmark.classList.add("bookmarked");
+    bookmark.querySelector("svg").setAttribute("fill", "#1b1c5c");
+}
+
+bookmark.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleSvgBookmark(activity.id, bookmark);
+});
+
 
     const title = document.createElement('h3');
     title.textContent = activity.name;
@@ -70,27 +134,26 @@ function createActivityCard(activity) {
         <p><strong>Target:</strong> ${activity.target}</p>
     `;
 
+    card.appendChild(bookmark);
     card.appendChild(title);
     card.appendChild(desc);
     card.appendChild(tagsDiv);
     card.appendChild(details);
 
+    card.addEventListener('click', () => openModal(activity));
     return card;
 }
 
-// Function to capitalize first letter
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-// Function to extract unique tags
 function getUniqueTags() {
     const allTags = [...activitiesData.dubai, ...activitiesData.vancouver]
         .flatMap(activity => activity.tags);
     return [...new Set(allTags)];
 }
 
-// Populate keyword checkboxes dynamically
 function populateKeywordsCheckboxes() {
     const keywordsContainer = document.getElementById("keywords-checkboxes");
     const uniqueTags = getUniqueTags();
@@ -104,7 +167,6 @@ function populateKeywordsCheckboxes() {
     });
 }
 
-// Attach styling to dynamically created keyword checkboxes
 function attachKeywordCheckboxStyling() {
     const checkboxes = document.querySelectorAll('input[name="keywords"]');
     checkboxes.forEach(checkbox => {
@@ -128,11 +190,10 @@ function attachKeywordCheckboxStyling() {
         }
 
         checkbox.addEventListener('change', updateStyle);
-        updateStyle(); // Initial render
+        updateStyle();
     });
 }
 
-// Load all activities
 function loadActivities() {
     const dubaiContainer = document.getElementById('dubai-activities');
     const vancouverContainer = document.getElementById('vancouver-activities');
@@ -150,7 +211,6 @@ function loadActivities() {
     });
 }
 
-// Apply filters
 function applyFilters() {
     const selectedTags = Array.from(document.querySelectorAll('input[name="keywords"]:checked'))
         .map(el => el.value.toLowerCase());
@@ -189,19 +249,60 @@ function applyFilters() {
     });
 }
 
-// Reset filters
 function resetFilters() {
     document.getElementById('filter-form').reset();
     loadActivities();
-    attachKeywordCheckboxStyling(); // Reapply styling
+    attachKeywordCheckboxStyling();
 }
 
-// Initialize
+// === Modal Logic ===
+function openModal(activity) {
+    document.getElementById("modal-title").textContent = activity.name;
+    document.getElementById("modal-description").textContent = activity.description;
+
+    const tagsContainer = document.getElementById("modal-tags");
+    tagsContainer.innerHTML = "";
+    activity.tags.forEach(tag => {
+        const tagEl = document.createElement("span");
+        tagEl.className = "tag";
+        tagEl.textContent = tag;
+        tagsContainer.appendChild(tagEl);
+    });
+
+    document.getElementById("modal-details").innerHTML = `
+        <p><strong>Payment:</strong> ${capitalize(activity.payment)}</p>
+        <p><strong>Work Mode:</strong> ${capitalize(activity.workMode)}</p>
+        <p><strong>Target:</strong> ${activity.target}</p>
+    `;
+    document.getElementById("modal-deadline").textContent = activity.deadline || "N/A";
+    document.getElementById("modal-link").href = activity.applyLink || "#";
+    document.getElementById("modal-link").textContent = "Apply Now";
+    document.getElementById("modal-extra").textContent = activity.extraInfo || "";
+
+    document.getElementById("activity-modal").classList.remove("hidden");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     populateKeywordsCheckboxes();
-    attachKeywordCheckboxStyling(); // After checkboxes are inserted
+    attachKeywordCheckboxStyling();
     loadActivities();
-});
 
-document.getElementById('apply-filters').addEventListener('click', applyFilters);
-document.getElementById('reset-filters').addEventListener('click', resetFilters);
+    document.getElementById('apply-filters').addEventListener('click', applyFilters);
+    document.getElementById('reset-filters').addEventListener('click', resetFilters);
+
+    document.getElementById("close-modal").addEventListener("click", () => {
+        document.getElementById("activity-modal").classList.add("hidden");
+    });
+
+    document.getElementById("activity-modal").addEventListener("click", (e) => {
+        if (e.target.id === "activity-modal") {
+            document.getElementById("activity-modal").classList.add("hidden");
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            document.getElementById("activity-modal").classList.add("hidden");
+        }
+    });
+});
