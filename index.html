@@ -1,335 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Opportunities HQ helps connect individuals with career and volunteer opportunities in Dubai and Vancouver.">
+    <meta name="keywords" content="Opportunities, Career, Volunteer, Internships, Dubai, Vancouver">
+    <meta name="author" content="Opportunities HQ">
+    
     <title>Opportunities HQ</title>
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Embedded CSS -->
-    <style>
-        /* Define color variables */
-        :root {
-            --color-primary: #e3e5ec; 
-            --color-secondary: #4e5fa2; /* Darker Light Blue */
-            --color-subtext: #8d79c1; 
-            --color-accent1: #3e4a8c;
-            --color-accent2: #2f3675;
-            --color-accent3: #25305e;
-            --color-accent4: #1d275b;
-            --color-accent5: #3c3079;
-            --color-accent6: #242d6e;
-            --color-accent7: #1a214c;
-            --color-accent8: #152148;
-            --color-test: #ca416e;
-            --color-bg: #dce0ea; /* Slightly darker background */
-            --color-text: #333;
-            --color-white: #ffffff;
-            --color-shadow: rgba(0, 0, 0, 0.2);
-        }
-
-        /* Global Styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary) 90%);
-            color: var(--color-text);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* Container */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        /* Header Styling */
-        header {
-            background-color: rgba(24, 25, 84, 0.85); /* Adjusted for new --color-primary */
-            color: var(--color-white);
-            padding: 20px 0;
-            box-shadow: 0 2px 4px var(--color-shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.8rem;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        nav ul li a {
-            color: var(--color-white);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease, background-color 0.3s ease;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        nav ul li a:hover {
-            background-color: var(--color-accent1);
-            color: var(--color-primary);
-        }
-
-        /* Main Content Styling */
-        main {
-            padding: 40px 0;
-        }
-
-        .main-container {
-            display: flex;
-            gap: 20px;
-        }
-
-        /* Sidebar/Filter Styling */
-        aside {
-            width: 25%;
-            padding: 20px;
-            background-color: var(--color-white);
-            border-radius: 8px;
-            box-shadow: 0 4px 6px var(--color-shadow);
-            position: sticky;
-            top: 80px;
-            height: fit-content;
-        }
-
-        aside h2 {
-            margin-bottom: 20px;
-            color: var(--color-accent6);
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.2rem;
-        }
-
-        .filter-group {
-            margin-bottom: 20px;
-        }
-
-        .filter-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
-        .filter-group input[type="text"],
-        .filter-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.95rem;
-        }
-
-        .filter-group input[type="checkbox"] {
-            margin-right: 8px;
-            transform: scale(1.2);
-        }
-
-        .filter-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        button {
-            flex: 1;
-            padding: 10px;
-            background-color: var(--color-secondary);
-            color: var(--color-primary);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            font-size: 0.95rem;
-        }
-
-        button:hover {
-            background-color: var(--color-accent1);
-            transform: translateY(-2px);
-        }
-
-        button:active {
-            transform: translateY(0);
-        }
-
-        /* Opportunities Section Styling */
-        #opportunities {
-            width: 75%;
-        }
-
-        #opportunities section {
-            margin-bottom: 40px;
-        }
-
-        #opportunities h2 {
-            margin-bottom: 20px;
-            color: var(--color-primary);
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.5rem;
-        }
-
-        .activities {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .activity-card {
-            background-color: var(--color-white);
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 4px var(--color-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .activity-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 8px var(--color-shadow);
-        }
-
-        .activity-card h3 {
-            margin-bottom: 10px;
-            color: var(--color-accent4);
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.2rem;
-        }
-
-        .activity-card p {
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-
-        .activity-tags {
-            margin-bottom: 10px;
-        }
-
-        .tag {
-            display: inline-block;
-            background-color: var(--color-accent5);
-            color: var(--color-white);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-
-        .activity-details {
-            font-size: 0.9rem;
-            color: var(--color-accent6);
-        }
-
-        .activity-details p {
-            margin-bottom: 5px;
-        }
-
-        strong {
-            font-weight: 700;
-        }
-
-        /* Footer Styling */
-        footer {
-            background-color: rgba(24, 25, 84, 0.85);
-            color: var(--color-white);
-            padding: 20px 0;
-            margin-top: 40px;
-            box-shadow: 0 -2px 4px var(--color-shadow);
-            backdrop-filter: blur(5px);
-        }
-
-        .footer-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .footer-container p {
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-
-        .social a {
-            color: var(--color-white);
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .social a:hover {
-            color: var(--color-accent1);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .main-container {
-                flex-direction: column;
-            }
-
-            aside {
-                width: 100%;
-                margin-bottom: 20px;
-                position: static;
-            }
-
-            #opportunities {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 600px) {
-            nav ul {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-
-            .filter-buttons {
-                flex-direction: column;
-            }
-
-            button {
-                width: 100%;
-            }
-        }
-    </style>
+    
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
+
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo-title">
-                <img src="ohq-logo.jpg" alt="Opportunities HQ Logo" class="logo">
-                <h1>Opportunities HQ</h1>
-            </div>
+            <h1>Opportunities HQ</h1>
             <nav>
                 <ul>
                     <li><a href="#dubai">Dubai Opportunities</a></li>
@@ -340,29 +35,40 @@
             </nav>
         </div>
     </header>
-
+    
     <!-- Main Content -->
     <main>
         <div class="container main-container">
-            <!-- Sidebar/Filter Section -->
             <aside>
                 <h2>Filter Opportunities</h2>
                 <form id="filter-form">
                     <div class="filter-group">
-                        <label for="keywords">Keywords/Tags:</label>
-                        <input type="text" id="keywords" name="keywords" placeholder="e.g., Education, Tech">
+                        <label>Keywords/Tags:</label>
+                        <div class="checkbox-group" id="keywords-checkboxes">
+                            <label><input type="checkbox" name="keywords" value="Technology"> Technology</label>
+                            <label><input type="checkbox" name="keywords" value="Education"> Education</label>
+                            <label><input type="checkbox" name="keywords" value="Marketing"> Marketing</label>
+                            <label><input type="checkbox" name="keywords" value="Business"> Business</label>
+                            <label><input type="checkbox" name="keywords" value="Environment"> Environment</label>
+                            <label><input type="checkbox" name="keywords" value="Research"> Research</label>
+                            <label><input type="checkbox" name="keywords" value="Community"> Community</label>
+                            <label><input type="checkbox" name="keywords" value="Events"> Events</label>
+                        </div>
                     </div>
+                    
                     <div class="filter-group">
                         <label>Payment Type:</label>
                         <label><input type="checkbox" name="payment" value="paid"> Paid</label>
                         <label><input type="checkbox" name="payment" value="voluntary"> Voluntary</label>
                     </div>
+
                     <div class="filter-group">
                         <label>Work Mode:</label>
                         <label><input type="checkbox" name="workMode" value="remote"> Remote</label>
                         <label><input type="checkbox" name="workMode" value="hybrid"> Hybrid</label>
                         <label><input type="checkbox" name="workMode" value="in-person"> In-Person</label>
                     </div>
+
                     <div class="filter-group">
                         <label for="target">Target Grade/Age:</label>
                         <select id="target" name="target">
@@ -374,6 +80,7 @@
                             <option value="Any Grade">Any Grade</option>
                         </select>
                     </div>
+
                     <div class="filter-buttons">
                         <button type="button" id="apply-filters">Apply Filters</button>
                         <button type="button" id="reset-filters">Reset Filters</button>
@@ -381,23 +88,21 @@
                 </form>
             </aside>
 
-            <!-- Opportunities Section -->
             <section id="opportunities">
-                <!-- Dubai Opportunities -->
                 <section id="dubai">
                     <h2>Dubai-Based Opportunities</h2>
                     <div class="activities" id="dubai-activities">
-                        <!-- Dubai activities will be dynamically added here -->
+                        
                     </div>
                 </section>
-
-                <!-- Vancouver Opportunities -->
+                
                 <section id="vancouver">
                     <h2>Vancouver-Based Opportunities</h2>
                     <div class="activities" id="vancouver-activities">
-                        <!-- Vancouver activities will be dynamically added here -->
+                
                     </div>
                 </section>
+                
             </section>
         </div>
     </main>
@@ -407,187 +112,19 @@
         <div class="container footer-container">
             <p>&copy; 2024 Opportunities HQ. All rights reserved.</p>
             <div class="social">
-                <a href="https://www.instagram.com/opportunities_hq/">Instagram</a> |
-                <a href="https://www.linkedin.com/company/opportunities-hq/?originalSubdomain=ca">LinkedIn</a>
+                <a href="https://www.instagram.com/opportunities_hq/" class="social-link">
+                    <img src="Instagram_icon.png" alt="Instagram" class="social-icon"> Instagram
+                </a>
+                |
+                <a href="https://www.linkedin.com/company/opportunities-hq/?originalSubdomain=ca" class="social-link">
+                    <img src="Linkedin_icon.png" alt="LinkedIn" class="social-icon"> LinkedIn
+                </a>
             </div>
         </div>
     </footer>
 
-    <!-- Embedded JavaScript -->
-    <script>
-        // Placeholder activities data
-        const activitiesData = {
-            dubai: [
-                {
-                    id: 1,
-                    name: "Tech Volunteer Program",
-                    description: "Assist in organizing tech workshops for youth.",
-                    tags: ["Technology", "Education"],
-                    payment: "voluntary",
-                    workMode: "in-person",
-                    target: "12th Grade"
-                },
-                {
-                    id: 2,
-                    name: "Marketing Internship",
-                    description: "Internship opportunity in the marketing department.",
-                    tags: ["Marketing", "Business"],
-                    payment: "paid",
-                    workMode: "hybrid",
-                    target: "11th Grade"
-                },
-                // Add more placeholder activities as needed
-            ],
-            vancouver: [
-                {
-                    id: 3,
-                    name: "Environmental Research Assistant",
-                    description: "Assist in research projects related to environmental science.",
-                    tags: ["Environment", "Research"],
-                    payment: "paid",
-                    workMode: "remote",
-                    target: "10th Grade"
-                },
-                {
-                    id: 4,
-                    name: "Community Outreach Volunteer",
-                    description: "Engage with the community to promote local events.",
-                    tags: ["Community", "Events"],
-                    payment: "voluntary",
-                    workMode: "in-person",
-                    target: "All Grades"
-                },
-                // Add more placeholder activities as needed
-            ]
-        };
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
 
-        // Function to create activity cards
-        function createActivityCard(activity) {
-            const card = document.createElement('div');
-            card.classList.add('activity-card');
-
-            const title = document.createElement('h3');
-            title.textContent = activity.name;
-
-            const desc = document.createElement('p');
-            desc.textContent = activity.description;
-
-            const tagsDiv = document.createElement('div');
-            tagsDiv.classList.add('activity-tags');
-            activity.tags.forEach(tag => {
-                const tagSpan = document.createElement('span');
-                tagSpan.classList.add('tag');
-                tagSpan.textContent = tag;
-                tagsDiv.appendChild(tagSpan);
-            });
-
-            const details = document.createElement('div');
-            details.classList.add('activity-details');
-            details.innerHTML = `
-                <p><strong>Payment:</strong> ${capitalize(activity.payment)}</p>
-                <p><strong>Work Mode:</strong> ${capitalize(activity.workMode)}</p>
-                <p><strong>Target:</strong> ${activity.target}</p>
-            `;
-
-            card.appendChild(title);
-            card.appendChild(desc);
-            card.appendChild(tagsDiv);
-            card.appendChild(details);
-
-            return card;
-        }
-
-        // Function to capitalize first letter
-        function capitalize(str) {
-            return str.charAt(0).toUpperCase() + str.slice(1);
-        }
-
-        // Function to load activities into the DOM
-        function loadActivities() {
-            const dubaiContainer = document.getElementById('dubai-activities');
-            const vancouverContainer = document.getElementById('vancouver-activities');
-
-            // Clear existing activities
-            dubaiContainer.innerHTML = '';
-            vancouverContainer.innerHTML = '';
-
-            // Load Dubai activities
-            activitiesData.dubai.forEach(activity => {
-                const card = createActivityCard(activity);
-                dubaiContainer.appendChild(card);
-            });
-
-            // Load Vancouver activities
-            activitiesData.vancouver.forEach(activity => {
-                const card = createActivityCard(activity);
-                vancouverContainer.appendChild(card);
-            });
-        }
-
-        // Function to apply filters
-        function applyFilters() {
-            const keywords = document.getElementById('keywords').value.toLowerCase();
-            const paymentTypes = Array.from(document.querySelectorAll('input[name="payment"]:checked')).map(el => el.value);
-            const workModes = Array.from(document.querySelectorAll('input[name="workMode"]:checked')).map(el => el.value);
-            const target = document.getElementById('target').value;
-
-            // Function to filter activities
-            function filterActivities(activity) {
-                // Keywords/Tags Filter
-                if (keywords) {
-                    const tagsMatch = activity.tags.some(tag => tag.toLowerCase().includes(keywords));
-                    const nameMatch = activity.name.toLowerCase().includes(keywords);
-                    if (!tagsMatch && !nameMatch) return false;
-                }
-
-                // Payment Type Filter
-                if (paymentTypes.length > 0 && !paymentTypes.includes(activity.payment)) {
-                    return false;
-                }
-
-                // Work Mode Filter
-                if (workModes.length > 0 && !workModes.includes(activity.workMode)) {
-                    return false;
-                }
-
-                // Target Grade/Age Filter
-                if (target && activity.target !== target) {
-                    return false;
-                }
-
-                return true;
-            }
-
-            // Filter and display Dubai activities
-            const dubaiContainer = document.getElementById('dubai-activities');
-            dubaiContainer.innerHTML = '';
-            activitiesData.dubai.filter(filterActivities).forEach(activity => {
-                const card = createActivityCard(activity);
-                dubaiContainer.appendChild(card);
-            });
-
-            // Filter and display Vancouver activities
-            const vancouverContainer = document.getElementById('vancouver-activities');
-            vancouverContainer.innerHTML = '';
-            activitiesData.vancouver.filter(filterActivities).forEach(activity => {
-                const card = createActivityCard(activity);
-                vancouverContainer.appendChild(card);
-            });
-        }
-
-        // Function to reset filters
-        function resetFilters() {
-            document.getElementById('filter-form').reset();
-            loadActivities();
-        }
-
-        // Event listeners
-        document.getElementById('apply-filters').addEventListener('click', applyFilters);
-        document.getElementById('reset-filters').addEventListener('click', resetFilters);
-
-        // Initialize the page by loading activities
-        document.addEventListener('DOMContentLoaded', loadActivities);
-    </script>
 </body>
 </html>
-
