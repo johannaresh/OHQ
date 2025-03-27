@@ -217,20 +217,15 @@ function applyFilters() {
     const paymentTypes = Array.from(document.querySelectorAll('input[name="payment"]:checked')).map(el => el.value);
     const workModes = Array.from(document.querySelectorAll('input[name="workMode"]:checked')).map(el => el.value);
     const target = document.getElementById('target').value;
+    const showBookmarkedOnly = document.getElementById('bookmarked-only').checked;
+    const bookmarkedIds = getBookmarkedIds();
 
     function filterActivities(activity) {
-        if (selectedTags.length > 0 && !selectedTags.some(tag => activity.tags.map(t => t.toLowerCase()).includes(tag))) {
-            return false;
-        }
-        if (paymentTypes.length > 0 && !paymentTypes.includes(activity.payment)) {
-            return false;
-        }
-        if (workModes.length > 0 && !workModes.includes(activity.workMode)) {
-            return false;
-        }
-        if (target && activity.target !== target) {
-            return false;
-        }
+        if (showBookmarkedOnly && !bookmarkedIds.includes(activity.id)) return false;
+        if (selectedTags.length > 0 && !selectedTags.some(tag => activity.tags.map(t => t.toLowerCase()).includes(tag))) return false;
+        if (paymentTypes.length > 0 && !paymentTypes.includes(activity.payment)) return false;
+        if (workModes.length > 0 && !workModes.includes(activity.workMode)) return false;
+        if (target && activity.target !== target) return false;
         return true;
     }
 
@@ -248,6 +243,7 @@ function applyFilters() {
         vancouverContainer.appendChild(card);
     });
 }
+
 
 function resetFilters() {
     document.getElementById('filter-form').reset();
