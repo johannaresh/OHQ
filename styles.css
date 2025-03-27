@@ -300,7 +300,10 @@ button:active {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
+  
+    cursor: pointer; /* 👈 This is the key line */
+  }
+  
 
 .activity-card:hover {
     transform: translateY(-5px);
@@ -504,4 +507,109 @@ input[name="keywords"]:checked ~ label {
     border-color: var(--color-accent1);
     outline: none;
     box-shadow: 0 0 0 2px rgba(84, 92, 153, 0.4);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(27, 28, 92, 0.8); /* translucent dark overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modal.hidden {
+    display: none;
+  }
+  
+  .modal-content {
+    background: var(--color-white);
+    padding: 30px 35px;
+    border-radius: 18px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeIn 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .modal-content h3 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-accent4);
+  }
+  
+  .modal-content p,
+  .modal-content a {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+  
+  .modal-content a {
+    color: var(--color-accent4);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  
+  .modal-content a:hover {
+    text-decoration: none;
+  }
+  
+  .modal .close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--color-accent4);
+  }
+
+  .tag {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  }
+  
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  .activity-card {
+    position: relative;
+    cursor: pointer;
+    padding-top: 10px; /* Add some top padding so the icon doesn't overlap */
+}
+
+/* This keeps the bookmark icon always visible */
+.bookmark-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bookmark-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    fill: none;
+    transition: fill 0.3s ease;
+}
+
+.bookmark-icon.bookmarked svg {
+    fill: #1b1c5c;
 }
