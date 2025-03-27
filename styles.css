@@ -613,11 +613,13 @@ input[name="keywords"]:checked ~ label {
 .bookmark-icon.bookmarked svg {
     fill: #1b1c5c;  
 }
-/* Layout the label and toggle switch side by side nicely */
+
+/* Toggle layout and structure */
 .toggle-group {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 16px;
   }
   
   .toggle-wrapper {
@@ -626,42 +628,51 @@ input[name="keywords"]:checked ~ label {
     height: 22px;
   }
   
+  /* Hide the default checkbox */
   .toggle-checkbox {
     opacity: 0;
     width: 0;
     height: 0;
   }
   
+  /* Base switch style */
   .toggle-switch {
     position: absolute;
-    cursor: pointer;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    transition: 0.4s;
     border-radius: 999px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
   
+  /* Circle inside the switch */
   .toggle-switch::before {
-    position: absolute;
     content: "";
+    position: absolute;
     height: 18px;
     width: 18px;
     left: 2px;
     bottom: 2px;
     background-color: white;
-    transition: 0.3s;
     border-radius: 50%;
+    transition: transform 0.3s ease;
   }
   
-  .toggle-checkbox:checked + .toggle-switch {/
+  /* When checked: blue background and glowing edge */
+  .toggle-checkbox:checked + .toggle-switch {
     background-color: #1b1c5c;
+    box-shadow: 0 0 0 2px #1b1c5c40;
   }
   
-  
+  /* Slide the toggle circle */
   .toggle-checkbox:checked + .toggle-switch::before {
     transform: translateX(20px);
   }
-  /*♱*/
+  
+  /* Optional: Hover effect */
+  .toggle-switch:hover {
+    box-shadow: 0 0 0 2px #1b1c5c20;
+  }
+    
