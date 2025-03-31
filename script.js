@@ -1,58 +1,11 @@
-// Enhanced activities data with deadlines, links, and extras
-const activitiesData = {
-    dubai: [
-        {
-            id: 1,
-            name: "Tech Volunteer Program",
-            description: "Assist in organizing tech workshops for youth.",
-            tags: ["Technology", "Education"],
-            payment: "voluntary",
-            workMode: "in-person",
-            target: "11th Grade",
-            deadline: "2025-04-30",
-            applyLink: "https://example.com/tech-volunteer",
-            extraInfo: "You’ll be trained by industry mentors and provided with a certificate upon completion."
-        },
-        {
-            id: 2,
-            name: "Marketing Internship",
-            description: "Internship opportunity in the marketing department.",
-            tags: ["Marketing", "Business"],
-            payment: "paid",
-            workMode: "hybrid",
-            target: "12th Grade",
-            deadline: "2025-05-15",
-            applyLink: "https://example.com/marketing-internship",
-            extraInfo: "Requires basic knowledge of Canva or social media content planning."
-        },
-    ],
-    vancouver: [
-        {
-            id: 3,
-            name: "Environmental Research Assistant",
-            description: "Assist in research projects related to environmental science.",
-            tags: ["Environment", "Research"],
-            payment: "paid",
-            workMode: "remote",
-            target: "9th Grade",
-            deadline: "2025-06-01",
-            applyLink: "https://example.com/environmental-research",
-            extraInfo: "Work closely with university labs and get credited on published findings."
-        },
-        {
-            id: 4,
-            name: "Community Outreach Volunteer",
-            description: "Engage with the community to promote local events.",
-            tags: ["Community", "Events"],
-            payment: "voluntary",
-            workMode: "in-person",
-            target: "Any Grade",
-            deadline: "2025-04-10",
-            applyLink: "https://example.com/community-outreach",
-            extraInfo: "Ideal for students interested in public speaking and event planning."
-        },
-    ]
-};
+let activitiesData = {};
+
+async function fetchActivities() {
+  const res = await fetch('activities.json');
+  activitiesData = await res.json();
+  loadActivities(); // render cards
+}
+
 
 function getBookmarkedIds() {
     return JSON.parse(localStorage.getItem("bookmarkedActivities")) || [];
@@ -278,11 +231,11 @@ function openModal(activity) {
     document.getElementById("activity-modal").classList.remove("hidden");
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+    await fetchActivities(); // wait for data first
     populateKeywordsCheckboxes();
     attachKeywordCheckboxStyling();
-    loadActivities();
-
+    
     document.getElementById('apply-filters').addEventListener('click', applyFilters);
     document.getElementById('reset-filters').addEventListener('click', resetFilters);
 
