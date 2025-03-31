@@ -1,0 +1,53 @@
+{
+    "dubai": [
+      {
+        "id": 1,
+        "name": "Tech Volunteer Program",
+        "description": "Assist in organizing tech workshops for youth.",
+        "tags": ["Technology", "Education"],
+        "payment": "voluntary",
+        "workMode": "in-person",
+        "target": "11th Grade",
+        "deadline": "2025-04-30",
+        "applyLink": "https://example.com/tech-volunteer",
+        "extraInfo": "You’ll be trained by industry mentors and provided with a certificate upon completion."
+      },
+      {
+        "id": 3,
+        "name": "Tech try Program",
+        "description": "Assist in organizing tech workshops for youth.",
+        "tags": ["Technology", "Education"],
+        "payment": "voluntary",
+        "workMode": "in-person",
+        "target": "11th Grade",
+        "deadline": "2025-04-30",
+        "applyLink": "https://example.com/tech-volunteer",
+        "extraInfo": "You’ll be trained by industry mentors and provided with a certificate upon completion."
+      }
+    ],
+    "vancouver": [
+      {
+        "id": 2,
+        "name": "Environmental Research Assistant",
+        "description": "Help with research in environmental science.",
+        "tags": ["Environment", "Research"],
+        "payment": "paid",
+        "workMode": "remote",
+        "target": "9th Grade",
+        "deadline": "2025-06-01",
+        "applyLink": "https://example.com/environmental-research",
+        "extraInfo": "Work closely with university labs and get credited on published findings."
+      },
+    {"id": 4,
+        "name": "Environmental Research test",
+        "description": "Help with research in environmental science.",
+        "tags": ["Environment", "Research"],
+        "payment": "paid",
+        "workMode": "remote",
+        "target": "9th Grade",
+        "deadline": "2025-06-01",
+        "applyLink": "https://example.com/environmental-research",
+        "extraInfo": "Work closely with university labs and get credited on published findings."}
+    ]
+  }
+  
