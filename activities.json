@@ -43,7 +43,7 @@
         "description": "Help with research in environmental science.",
         "tags": ["Environment", "Research"],
         "payment": "paid",
-        "workMode": "remote",
+        "workMode": "hybrid",
         "target": "9th Grade",
         "deadline": "2025-06-01",
         "applyLink": "https://example.com/environmental-research",
