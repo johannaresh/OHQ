@@ -141,6 +141,15 @@ header h1 {
     font-size: 1.8rem;
 }
 
+header h1 a {
+    color: inherit;
+    text-decoration: none;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+}
+
+
 nav ul {
     list-style: none;
     display: flex;
@@ -675,4 +684,204 @@ input[name="keywords"]:checked ~ label {
   .toggle-switch:hover {
     box-shadow: 0 0 0 2px #1b1c5c20;
   }
-    
+
+
+  #content {
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px var(--color-shadow);
+    margin-top: 20px;
+}
+
+#content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #3e4a8c; /* same as about */
+    font-family: 'Roboto', sans-serif;
+}
+
+#content h3 {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 4px;
+    color: #3e4a8c;
+    font-family: 'Roboto', sans-serif;
+}
+
+#content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+#content a {
+    color: #3e4a8c;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.3s ease;
+}
+
+#content a:hover {
+    color: var(--color-secondary);
+}
+
+#content strong {
+    color: var(--color-accent1);
+    font-weight: 700;
+}
+
+#content ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    list-style-type: disc;
+}
+
+#content ul li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+
+/* === Layout Fix: Full height + remove margin === */
+html, body.landing-page {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.landing-page .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--color-white);
+    color: var(--color-text);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+}
+
+.landing-page main {
+    flex: 1;
+    padding: 0;
+    margin: 0;
+}
+
+/* === Hero Section with Animated CTA === */
+.landing-page .landing-hero {
+    min-height: 100vh; /* fill full viewport height */
+    background: url('hero.jpg') center/cover no-repeat;
+    position: relative;
+    text-align: center;
+    color: var(--color-white);
+    margin-bottom: 0;
+    border-bottom: none;
+    background-color: var(--color-primary); /* fallback color if image is too small */
+
+    /* Center hero content both horizontally & vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px; /* small optional padding inside hero */
+}
+
+.landing-page .landing-hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(27, 28, 92, 0.75);
+    z-index: 0;
+}
+
+.landing-page .landing-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: auto;
+}
+
+.landing-page .landing-content h2 {
+    font-size: 2.6rem;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.landing-page .landing-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.landing-page .cta-button {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    font-weight: 600;
+    padding: 14px 28px;
+    font-size: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px var(--color-shadow);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse 2.4s ease-in-out infinite;
+}
+
+.landing-page .cta-button:hover {
+    background-color: var(--color-accent5);
+    color: var(--color-white);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px var(--color-shadow);
+}
+
+/* === Animation Keyframes === */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+/* === Logo Link Styling === */
+.landing-page .logo-link {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-family: 'Roboto', sans-serif;
+    transition: opacity 0.3s ease;
+}
+
+.landing-page .logo-link:hover {
+    opacity: 0.8;
+}
+
+/* === Header & Footer Styling (Landing Only) === */
+.landing-page header {
+    background-color: rgba(27, 28, 93, 0.95);
+    color: var(--color-white);
+    padding: 20px 0;
+    box-shadow: 0 2px 4px var(--color-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid var(--color-accent3);
+}
+
+.landing-page footer {
+    background-color: rgba(27, 28, 92, 0.95);
+    color: var(--color-white);
+    padding: 20px 0;
+    box-shadow: 0 -2px 4px var(--color-shadow);
+    backdrop-filter: blur(5px);
+    border-top: 1px solid var(--color-accent3);
+    margin-top: 0;
+}
