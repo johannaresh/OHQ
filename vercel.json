@@ -1,12 +1,7 @@
 {
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/landing.html",
-      "permanent": true
-    }
-  ],
+  "cleanUrls": true,
   "rewrites": [
+    { "source": "/", "destination": "/landing.html" },
     { "source": "/about", "destination": "/about.html" },
     { "source": "/support", "destination": "/support.html" },
     { "source": "/home", "destination": "/index.html" }
