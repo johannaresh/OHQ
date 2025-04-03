@@ -30,7 +30,7 @@
         "id": 2,
         "name": "Environmental Research Assistant",
         "description": "Help with research in environmental science.",
-        "tags": ["Environment", "Research","test"],
+        "tags": ["Environment", "Research"],
         "payment": "paid",
         "workMode": "remote",
         "target": "9th Grade",
