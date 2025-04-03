@@ -5,15 +5,10 @@
       "destination": "/landing.html",
       "permanent": true
     }
-  ]
-}
-
-{
+  ],
   "rewrites": [
     { "source": "/about", "destination": "/about.html" },
-    { "source": "/support", "destination": "/support.html" }
+    { "source": "/support", "destination": "/support.html" },
     { "source": "/home", "destination": "/index.html" }
-    { "source": "/", "destination": "/landing.html"}
-    
   ]
 }
