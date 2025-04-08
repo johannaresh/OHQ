@@ -14,9 +14,9 @@
       },
       {
         "id": 3,
-        "name": "Tech try Program",
+        "name": "Tech example Program",
         "description": "Assist in organizing tech workshops for youth.",
-        "tags": ["Technology", "Education"],
+        "tags": ["Technology", "Health"],
         "payment": "voluntary",
         "workMode": "in-person",
         "target": "11th Grade",
