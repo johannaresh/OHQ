@@ -74,8 +74,25 @@ This is a **completed, impact-driven project**, not an abandoned one.
 ├── data/
 │   └── opportunities.json  # Opportunity listings
 └── assets/                 # Images and static assets
-```
 
+/
+├── index.html                # Main landing page
+├── home.html                 # Opportunity discovery view
+├── about.html                # Organization overview
+├── support.html              # Support & contact page
+├── script.js                 # Filtering, bookmarks, UI logic
+├── styles.css                # Global styling
+├── activities.json           # Centralized opportunity listings
+├── sitemap.xml               # SEO sitemap
+├── vercel.json               # Deployment configuration
+├── google*.html               # Search Console verification
+├── assets / images
+│   ├── hero.jpg
+│   ├── favicon.png
+│   ├── instagram_icon.png
+│   ├── linkedin_icon.png
+│   └── other static assets
+```
 ---
 
 ## 📈 Impact (During Active Use)
