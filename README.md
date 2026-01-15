@@ -6,6 +6,11 @@ This repository contains the **original implementation** of the Opportunities HQ
 
 ---
 
+## 🌐 Live Site
+https://opportunitieshq.vercel.app
+
+---
+
 ## ✨ Overview
 
 Students often face fragmented information spread across dozens of websites, newsletters, and social platforms. Opportunities HQ addressed this by offering:
